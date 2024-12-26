@@ -1,0 +1,527 @@
+/*
+	Shine by TEMPLATE STOCK
+	templatestock.co @templatestock
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+*/
+
+/* GLOBAL STYLES */
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+    background: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #333333;
+    line-height: 28px;
+    text-align: center;
+    overflow-x: hidden !important;
+    margin: auto !important;
+}
+
+a, a:hover, a:active, a:focus {
+    border: 0 none;
+    outline: 0 none;
+    text-decoration: none;
+}
+
+/* TYPOGRAPHIE */
+
+h1,
+h2 {
+	font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 42px;
+    line-height: 62px;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 42px;
+}
+
+h3 {
+    font-size: 22px;
+    line-height: 38px;
+    font-weight: 300;
+}
+
+h4 {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 300;
+}
+
+h5 {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+
+/* FORM GROUPS */
+
+.form-control {
+	background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5);
+	border-radius: 0px;
+    box-shadow: none;
+    height: 57px;
+    padding-left: 20px;
+}
+
+/* CUSTOM CLASSES */
+
+.white-text {
+	color: #fff;
+}
+
+.colored-line-small-center {
+	background: #008ed6;
+	display: block;
+	margin: auto;
+    height: 1px;
+    width: 25%;
+    z-index: 1;
+	margin-bottom: 5px;
+}
+
+.colored-line-right {
+	background: #008ed6;
+	display: block;
+	float: right;
+    height: 1px;
+    width: 165px;
+    z-index: 1;
+}
+
+.button-leweb {
+	background: none repeat scroll 0 0 rgba(22, 182, 234, 0.5);
+    border: 1px solid #fff;
+	color: #fff;
+	border-radius: 0px;
+    box-shadow: none;
+	height: 57px;
+	padding-left: 18px;
+	padding-right: 18px;
+	
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease; 
+}
+
+
+.button-leweb:hover {
+	background: #008ed6;
+}
+
+
+/* SECTIONS */
+
+section {
+	padding: 120px 0px;
+}
+/* HEADER */
+
+#header {
+	background: url(../images/bsbild_fullhd_01.png) no-repeat center center;
+	background-size: cover;
+	height: 100vh;
+	padding: 0px;
+}
+
+#header .container {
+	background: url(../images/body-bg1.png) repeat 0 0;
+	height: 100vh;
+	width: 100% !important;
+	padding: 0px;	
+	z-index: 998;
+}
+
+#header .col-md-8 {
+	top: 20%;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 999;
+}
+
+#header .logo {
+	margin-bottom: 15px;
+}
+
+.animation {
+	width: 100%;
+	bottom: 0;
+	height: 50px;
+	overflow: hidden;
+	position: absolute;
+	z-index: 999;
+	text-align:center;
+	text-decoration: none;
+}
+
+#header .fa-angle-down {
+	text-align: center;
+	font-size: 48px;
+	color: #fff;
+	
+	-webkit-animation: leweb_fade_move_down 2s ease-in-out infinite;
+	-moz-animation: leweb_fade_move_down 2s ease-in-out infinite;
+	animation: leweb_fade_move_down 2s ease-in-out infinite;
+   }
+
+	/* Animated Arrow Down Header */
+	
+@-webkit-keyframes leweb_fade_move_down {
+  0%   { -webkit-transform:translate(0,-20px); opacity: 0;  }
+  50%  { opacity: 1;  }
+  100% { -webkit-transform:translate(0,20px); opacity: 0; }
+}
+@-moz-keyframes leweb_fade_move_down {
+  0%   { -moz-transform:translate(0,-20px); opacity: 0;  }
+  50%  { opacity: 1;  }
+  100% { -moz-transform:translate(0,20px); opacity: 0; }
+}
+@keyframes leweb_fade_move_down {
+  0%   { transform:translate(0,-20px); opacity: 0;  }
+  50%  { opacity: 1;  }
+  100% { transform:translate(0,20px); opacity: 0; }
+}
+
+
+/* ABOUT */
+
+#about i {
+	color: #fff;
+	font-size: 75px;
+	background: #008ed6;
+	border-radius: 50%;
+	line-height: 175px;
+	height: 175px;
+	width: 175px;
+}
+
+/* SUBSCRIBE */
+
+#subscribe {
+	background: url(../images/bg-subscribe.jpg) no-repeat fixed center center / cover rgba(0, 0, 0, 0);
+	padding: 0px;
+	min-height: 430px;
+}
+
+#subscribe .icontop {
+	position: absolute;
+	color: #fff;
+	margin: -30px auto;
+	right: 0;
+	left: 0;
+	font-size: 25px;
+	border-radius: 50%;
+	line-height: 65px;
+	height: 65px;
+	width: 65px;
+	background: rgba(0, 142, 214, 0.7);	
+	box-shadow: 0 0 0 1px #008ed6;
+}
+
+#subscribe .row {
+	padding: 100px 0px 120px 0px;
+}
+
+#subscribe h5{
+	margin-bottom: 45px;
+}
+
+#subscribe .form-control {
+	display: inline-block;
+	border: 1px solid #fff;
+    width: 320px;
+}
+
+#subscribe .form-control::-moz-placeholder {
+	color: #fff;
+}
+
+#subscribe .button-leweb {
+	display: inline-block;
+}
+
+#subscribe #mc_form label {
+	display: block;
+	font-size: 12px !important;
+	margin-top: 10px;
+	font-weight: normal;
+	position: relative;
+	color: #fff;
+}
+
+#subscribe #mc_form .valid:before {
+        font-family: FontAwesome;
+        top:0;
+        content: "\f058";
+		font-size: 14px;
+		margin-right: 4px;
+		color: #b8c000;
+}
+
+#subscribe #mc_form .error:before {
+        font-family: FontAwesome;
+        top:0;
+        content: "\f071";
+		font-size: 14px;
+		margin-right: 4px;
+		color: #bb1720;
+}
+
+
+/* CONTACT */
+
+#contact .button-leweb {
+	border: 1px solid #ccc;
+}
+
+#success {
+	display: none;
+}
+
+#success i {
+	color: #b8c000;
+	font-size: 28px;
+	display: block;
+}
+
+/* FOOTER */
+
+#footer {
+	border-top: 1px solid #ccc;
+	padding: 25px 0px;
+}
+
+#footer p {
+	margin: 0px 0px -5px;
+}
+
+#footer .social {
+	float: right;
+}
+
+#footer .fa {
+	font-size: 24px;
+	color: rgba(22, 182, 234, 0.5);
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+#footer .fa:hover {
+	color: #008ed6;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+/* Extra Small devices (tablets, 446px and less) */
+@media (max-width: 456px) { 
+	
+	#mc_form .form-control {
+		width: 100%;
+		margin-bottom: 15px;
+	}
+	
+	.button-leweb {
+		width: 100%;
+	}
+	
+	#header .logo {
+		width: 200px;
+	}
+	
+	#header h1 {
+		display: none;
+	}
+
+}
+/* Small devices (tablets, 768px and less) */
+@media (max-width: 768px) { 
+
+	body {
+		font-size: 14px;
+		line-height: 20px;
+	}
+	h1 {
+		font-size: 44px;
+		line-height: 58px;
+	}
+
+	h2 {
+		font-size: 24px;
+		line-height: 38px;
+	}
+
+	h3 {
+		font-size: 18px;
+		line-height: 30px;
+	}
+
+	h4 {
+		font-size: 16px;
+		line-height: 26px;
+	}
+
+	h5 {
+		font-size: 14px;
+		line-height: 20px;
+	}
+	
+	.clocktitle{
+		font-size: 11px;
+	}
+
+	.numbers {
+		font-size: 44px;
+	}
+	
+	#header .col-md-8 {
+		top: 5%;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (max-width: 992px) {	
+	
+	#about .middle {
+		margin-top: 65px;
+		margin-bottom: 65px;
+	}
+}
+
+	/* Style chung cho input range */
+	input[type="range"] {
+		width: 100%; /* Đảm bảo chiều rộng */
+		max-width: 300px; /* Đặt chiều rộng tối đa */
+		margin-right: 10px; /* Khoảng cách với giá trị hiển thị */
+		appearance: none; /* Xóa style mặc định của trình duyệt */
+		background-color: #ddd; /* Màu nền thanh trượt */
+		height: 8px; /* Chiều cao cố định */
+		border-radius: 5px; /* Bo góc */
+		outline: none; /* Xóa viền xanh khi chọn */
+	   
+	}
+	/* Đặt chiều rộng cố định cho giá trị hiển thị */
+	span#temperature_value, 
+	span#light_value {
+		display: inline-block; /* Để giá trị nằm cạnh thanh trượt */
+		width: 50px; /* Chiều rộng cố định để giá trị không thay đổi kích thước */
+		text-align: left; /* Căn chỉnh giá trị */
+		font-size: 14px; /* Cỡ chữ phù hợp */
+		white-space: nowrap; /* Giữ giá trị trên một dòng */
+		overflow: hidden; /* Không hiển thị nội dung thừa */
+		margin-left: 10px; /* Khoảng cách giữa thanh trượt và giá trị */
+	}
+	
+		
+				.toggle-button {
+					display: inline-block;
+					width: 60px;
+					height: 30px;
+					border-radius: 30px;
+					background-color: #ddd;
+					position: relative;
+					cursor: pointer;
+				}
+		
+				.toggle-button .indicator {
+					width: 28px;
+					height: 28px;
+					background-color: white;
+					border-radius: 50%;
+					position: absolute;
+					top: 1px;
+					transition: 0.3s;
+				}
+		
+				.toggle-button.active {
+					background-color: #4CAF50;
+				}
+		
+				.toggle-button.active .indicator {
+					left: 30px;
+				}
+				.record-button {
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		
+		.record-button:active {
+			background-color: #45a049;
+			opacity: 0.5; /* Khi giữ nút, nút sẽ nhạt đi */
+		}
+		
+		.form-container {
+			display: flex;
+			justify-content: center; /* Căn giữa theo chiều ngang */
+			align-items: center; /* Căn giữa theo chiều dọc */
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+			color: white; /* Chữ màu trắng */
+			max-width: 400px; /* Chiều rộng tối đa */
+			margin: auto; /* Căn giữa theo chiều ngang */
+			flex-direction: column; /* Sắp xếp theo chiều dọc */
+			background-color: transparent; /* Nền trong suốt */
+		}
+	
+		.form-group {
+			display: flex;
+			align-items: center; /* Căn giữa chiều dọc cho label và input */
+			justify-content: space-between; /* Đưa label và input về hai bên */
+			margin-bottom: 10px; /* Khoảng cách giữa các mục */
+		}
+		.form-group1 {
+			margin-bottom: -12px !important; /* Khoảng cách giữa các mục */
+		}
+	
+	
+		label {
+			font-weight: bold;
+			margin-right: 10px; /* Khoảng cách giữa label và input */
+			white-space: nowrap; /* Giữ chữ trên một dòng */
+		}
+	
+		.form-select,
+		.form-range {
+			flex: 1; /* Chiếm hết chiều ngang còn lại */
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+		}
+	
+		span {
+			margin-left: 10px; /* Khoảng cách giữa giá trị và nút input */
+		}
+
+		/* Đảm bảo màu chữ trong select là đen */
+select#MUC {
+    color: black; /* Màu chữ trong phần tử select */
+}
+
+/* Màu chữ cho các option */
+select#MUC option {
+    color: black; /* Màu chữ cho các option */
+}

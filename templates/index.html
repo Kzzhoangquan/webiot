@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--
+	Shine by TEMPLATE STOCK
+	templatestock.co @templatestock
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>IOT Quân và Long</title>
+
+		
+		<!-- WEB FONTS -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,400,300italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+		<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+		
+		<!-- BOOTSTRAP -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+		<!-- FONT AWESOME -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+		<!-- CUSTOM STYLING -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+		<!-- PRELOADER -->	
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/loader.css') }}">
+
+		
+	</head>
+	
+<body>
+	<!-- PRELOADER -->
+		<div id="loader-wrapper">
+			<div id="loader"><div class="sk-spinner sk-spinner-cube-grid"><div class="sk-cube"></div><div class="sk-cube"></div><div class="sk-cube"></div><div class="sk-cube"></div><div class="sk-cube"></div><div class="sk-cube"></div><div class="sk-cube"></div><div class="sk-cube"></div><div class="sk-cube"></div></div></div>
+		</div>	
+		
+	<!-- HEADER -->
+		<section id="header">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-md-8">
+						<img class="logo" src="static/images/test.png" />
+						<div class="form-container">
+							{% if data %}
+							<form method="POST" action="/update">
+								<div class="form-group">
+									<label for="MUC">Trạng thái</label>
+									<select name="MUC" id="MUC" class="form-select">
+										<option value="0" {% if data['MUC'] == 0 %}selected{% endif %}>Đóng</option>
+										<option value="1" {% if data['MUC'] == 1 %}selected{% endif %}>Mở một nửa</option>
+										<option value="2" {% if data['MUC'] == 2 %}selected{% endif %}>Mở toàn bộ</option>
+									</select>
+								</div>
+						
+								<div class="form-group">
+									<label for="ACTIVE_LIGHT">Bật cảm biến ánh sáng</label>
+									<div class="toggle-button" id="ACTIVE_LIGHT">
+										<div class="indicator"></div>
+									</div>
+									<input type="hidden" name="ACTIVE_LIGHT" id="ACTIVE_LIGHT_input">
+								</div>
+						
+								<div class="form-group">
+									<label for="ACTIVE_TEMPERATURE">Bật cảm biến nhiệt độ</label>
+									<div class="toggle-button" id="ACTIVE_TEMPERATURE">
+										<div class="indicator"></div>
+									</div>
+									<input type="hidden" name="ACTIVE_TEMPERATURE" id="ACTIVE_TEMPERATURE_input">
+								</div>
+						
+								<div class="form-group">
+									<label for="ACTIVE_DISTANCE">Bật cảm biến tiệm cận</label>
+									<div class="toggle-button" id="ACTIVE_DISTANCE">
+										<div class="indicator"></div>
+									</div>
+									<input type="hidden" name="ACTIVE_DISTANCE" id="ACTIVE_DISTANCE_input">
+								</div>
+
+								<div class="form-group form-group1">
+									<label for="TEMPERATURE">Ngưỡng nhiệt độ</label>
+								</div>
+
+								<div class="form-group">									
+									<input  type="range" name="TEMPERATURE" id="TEMPERATURE" min="0" max="100" value="{{ data['TEMPERATURE'] }}" />
+									<span id="temperature_value">{{ data['TEMPERATURE'] }}</span>
+								</div>
+						
+								<div class="form-group form-group1">
+									<label for="LIGHT">Ngưỡng ánh sáng</label>									
+								</div>
+
+								<div class="form-group">									
+									<input type="range" name="LIGHT" id="LIGHT" min="0" max="1200" value="{{ data['LIGHT'] }}" />
+									<span id="light_value">{{ data['LIGHT'] }}</span>
+								</div>
+						
+								
+							</form>
+							{% else %}
+							<p>Không có dữ liệu.</p>
+							{% endif %}							
+						</div>
+						
+						<div id="countdown" class="white-text"></div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="animation">
+			<a class="arrow-down-animation" data-scroll href="#about"><i class="fa fa-angle-down"></i></a>
+			</div> -->
+		</section>
+	<!-- HEADER ENDS -->
+	
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="static/js/bootstrap.min.js"></script>
+		<!-- SMOOTH SCROLL -->
+		<script src="static/js/smooth-scroll.min.js"></script>
+		<!-- PARALLAX IMG -->
+		<script src="static/js/jquery.parallax-1.1.3.js"></script>
+		<!-- SCROLL REVEAL -->
+		<script src="static/js/scrollReveal.min.js"></script>
+		<!-- FUNCTIONS -->
+		<script src="static/js/functions.js"></script>
+
+	  
+		  <script>
+			  function updateIndicator(elementId, inputId, state) {
+				  const button = document.getElementById(elementId);
+				  const indicator = button.querySelector('.indicator');
+				  const input = document.getElementById(inputId);
+		  
+				  if (state === 1) {
+					  indicator.style.left = "30px";
+					  button.classList.add('active');
+					  input.value = 1;
+				  } else {
+					  indicator.style.left = "1px";
+					  button.classList.remove('active');
+					  input.value = 0;
+				  }
+			  }
+		  
+			  window.onload = function() {
+				  updateIndicator('ACTIVE_LIGHT', 'ACTIVE_LIGHT_input', {{ data['ACTIVE_LIGHT'] }});
+				  updateIndicator('ACTIVE_TEMPERATURE', 'ACTIVE_TEMPERATURE_input', {{ data['ACTIVE_TEMPERATURE'] }});
+				  updateIndicator('ACTIVE_DISTANCE', 'ACTIVE_DISTANCE_input', {{ data['ACTIVE_DISTANCE'] }});
+			  }
+		  
+			  document.querySelectorAll('.toggle-button').forEach(function(button) {
+				  button.addEventListener('click', function() {
+					  const inputId = button.id + '_input';
+					  const currentState = document.getElementById(inputId).value;
+					  updateIndicator(button.id, inputId, currentState == 1 ? 0 : 1);
+					  updateFirebase();
+				  });
+			  });
+		  
+			  document.querySelectorAll('input[type="range"]').forEach(function(slider) {
+				  slider.addEventListener('input', function() {
+					  const valueDisplay = document.getElementById(slider.name + '_value');
+					  valueDisplay.innerText = slider.value;
+					  updateFirebase(); // Gọi updateFirebase khi giá trị của slider thay đổi
+				  });
+			  });
+		  
+			  document.getElementById('MUC').addEventListener('change', function() {
+			  console.log("thay doi muc")
+				  updateFirebase(); // Gọi updateFirebase khi giá trị của MUC thay đổi
+			  });
+		  
+			  document.getElementById('TEMPERATURE').addEventListener('change', function() {
+				  updateFirebase(); // Gọi updateFirebase khi giá trị của TEMPERATURE thay đổi
+			  });
+		  
+			  document.getElementById('LIGHT').addEventListener('change', function() {
+				  updateFirebase(); // Gọi updateFirebase khi giá trị của LIGHT thay đổi
+			  });
+		  
+			  function updateFirebase() {
+				  const data = {
+					  MUC: document.getElementById('MUC').value,
+					  ACTIVE_LIGHT: document.getElementById('ACTIVE_LIGHT_input').value,
+					  ACTIVE_TEMPERATURE: document.getElementById('ACTIVE_TEMPERATURE_input').value,
+					  ACTIVE_DISTANCE: document.getElementById('ACTIVE_DISTANCE_input').value,
+					  TEMPERATURE: document.getElementById('TEMPERATURE').value,
+					  LIGHT: document.getElementById('LIGHT').value
+				  };
+		  
+				  fetch('/update', {
+					  method: 'POST',
+					  headers: { 'Content-Type': 'application/json' },
+					  body: JSON.stringify(data)
+				  }).then(response => response.json())
+					.then(data => console.log('Successfully updated:', data))
+					.catch(error => console.error('Error updating device state:', error));
+			  }
+		  
+			  // Polling API to fetch new data every 5 seconds
+			  setInterval(function() {
+				  fetch('/poll')
+					  .then(response => response.json())
+					  .then(data => {
+						  // Cập nhật các giá trị trên giao diện người dùng
+						  updateIndicator('ACTIVE_LIGHT', 'ACTIVE_LIGHT_input', data.ACTIVE_LIGHT);
+						  updateIndicator('ACTIVE_TEMPERATURE', 'ACTIVE_TEMPERATURE_input', data.ACTIVE_TEMPERATURE);
+						  updateIndicator('ACTIVE_DISTANCE', 'ACTIVE_DISTANCE_input', data.ACTIVE_DISTANCE);
+		  
+						  document.getElementById('TEMPERATURE').value = data.TEMPERATURE;
+						  document.getElementById('temperature_value').innerText = data.TEMPERATURE;
+						  document.getElementById('LIGHT').value = data.LIGHT;
+						  document.getElementById('light_value').innerText = data.LIGHT;
+						    // Cập nhật giá trị của select MUC
+							const mucSelect = document.getElementById('MUC');
+            					if (mucSelect) {
+                				mucSelect.value = data.MUC; // Đặt giá trị của select
+            				}
+					  })
+					  .catch(error => console.error('Error polling data:', error));
+			  }, 1000); // Mỗi 1 giây
+		  </script>
+		  
+</body>
+</html>
